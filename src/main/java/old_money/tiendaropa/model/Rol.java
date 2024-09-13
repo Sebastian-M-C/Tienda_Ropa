@@ -9,6 +9,7 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_rol;
+    @Column(nullable = false)
     private String tipo_rol;
 
     public Rol(Long id_rol, String tipo_rol) {

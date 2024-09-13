@@ -8,10 +8,11 @@ public class CarritoCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_carrito;
+    @Column(nullable = false)
     private String estado;
 
     @OneToOne
-    @JoinColumn(name = "fk_user")
+    @JoinColumn(name = "fk_user", nullable = false)
     private Usuario user;
 
     public CarritoCompra(Long id_carrito, String estado, Usuario user) {
@@ -19,6 +20,7 @@ public class CarritoCompra {
         this.estado = estado;
         this.user = user;
     }
+
 
     public CarritoCompra() {
     }

@@ -12,12 +12,17 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_user;
+    @Column(nullable = false)
     private String nombre_user;
+
+    @Column(nullable = false)
     private String correo_user;
+
+    @Column(nullable = false)
     private Integer contra_user;
 
     @OneToOne
-    @JoinColumn(name = "fk_rol")
+    @JoinColumn(name = "fk_rol", nullable = false)
     private Rol rol;
 
 
