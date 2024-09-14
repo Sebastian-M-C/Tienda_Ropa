@@ -1,8 +1,10 @@
 package old_money.tiendaropa.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "CarritoCompras")
 public class CarritoCompra {
     @Id

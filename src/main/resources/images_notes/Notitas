@@ -1,0 +1,35 @@
+Recordemos cómo es el flujo:
+Modelo: Aquí defines tus entidades (como Usuario) y las relaciones entre ellas.
+
+Repositorio: Aquí es dYa lo tienes creado y lo inyectaste
+             en el servicio, si necesito hacer busquedas mas complejas o personalizadas lo puedo
+             agregar en el repositorio
+             findAll(): genera un SELECT * FROM usuarios.
+             findById(Long id): genera un SELECT * FROM usuarios WHERE id = ?.
+             save(Usuario usuario): genera un INSERT INTO usuarios ... o UPDATE usuarios ....
+
+Servicio: Aquí defines la lógica de negocio. Ya lo tieonde defines cómo interactuar con la
+          base de datos. nes implementado con los métodos básicos.
+
+
+Controlador: Es el que expone las API a través de endpoints HTTP para que puedan ser
+             consumidos por Postman, el navegador o una aplicación.
+             @RestController, que le indica a Spring que esta clase manejará las solicitudes
+             HTTP y devolverá los datos directamente (normalmente en formato JSON).
+
+             @GetMapping: Para obtener datos (solicitud HTTP GET).
+             @PostMapping: Para crear nuevos recursos (solicitud HTTP POST).
+             @PutMapping: Para actualizar recursos existentes (solicitud HTTP PUT).
+             @DeleteMapping: Para eliminar recursos (solicitud HTTP DELETE).
+
+             src/
+             ├── main/
+             │   └── java/
+             │       └── com/
+             │           └── tienda/
+             │               ├── controller/ (4)
+             │               ├── model/ (1)
+             │               ├── repository/ (2)
+             │               └── service/  <-- Aquí crearás los servicios (3)
+
+Esta es la estructura que debería seguir para futuros proyectos

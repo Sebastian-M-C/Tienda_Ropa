@@ -1,12 +1,16 @@
 package old_money.tiendaropa.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(
         name = "Usuarios",
         uniqueConstraints = @UniqueConstraint(name = "email", columnNames = "correo_user")
 )
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Usuario {
 
     @Id

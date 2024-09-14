@@ -1,8 +1,10 @@
 package old_money.tiendaropa.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "DetalleVentas")
 public class DetalleVenta {
 
@@ -23,6 +25,21 @@ public class DetalleVenta {
     private Producto producto;
 
 
+    @ManyToOne
+    @JoinColumn(name = "fk_carritoCompra", nullable = false)
+    private CarritoCompra carritoCompra;
+
+    public DetalleVenta(Long id_detalleVenta, Integer cantidad, Integer precio, NotaVenta notaVenta, Producto producto, CarritoCompra carritoCompra) {
+        this.id_detalleVenta = id_detalleVenta;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.notaVenta = notaVenta;
+        this.producto = producto;
+        this.carritoCompra = carritoCompra;
+    }
+
+    public DetalleVenta() {
+    }
 
     public Long getId_detalleVenta() {
         return id_detalleVenta;
@@ -62,5 +79,13 @@ public class DetalleVenta {
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public CarritoCompra getCarritoCompra() {
+        return carritoCompra;
+    }
+
+    public void setCarritoCompra(CarritoCompra carritoCompra) {
+        this.carritoCompra = carritoCompra;
     }
 }
