@@ -3,81 +3,106 @@ package old_money.tiendaropa.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+import java.util.Set;
+
 @Entity
 @Data
-@Table(
-        name = "Usuarios",
-        uniqueConstraints = @UniqueConstraint(name = "email", columnNames = "correo_user")
-)
+@Table(name = "Usuarios")
 //@AllArgsConstructor
 //@NoArgsConstructor
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id_user;
-    @Column(nullable = false)
-    private String nombre_user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
-    private String correo_user;
+    private String firstName;
 
     @Column(nullable = false)
-    private Integer contra_user;
+    private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "fk_rol", nullable = false)
-    private Rol rol;
+    @Column(nullable = false, unique = true)
+    private String email;
 
+    /*@Column(nullable = false)
+    private String password;*/
 
-    public Usuario(Long id_user, String nombre_user, String correo_user, Integer contra_user, Rol rol) {
-        this.id_user = id_user;
-        this.nombre_user = nombre_user;
-        this.correo_user = correo_user;
-        this.contra_user = contra_user;
-        this.rol = rol;
+    private Date createAt;
+
+    private String status;
+
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "User_Role",
+//            joinColumns = @JoinColumn(name = "id",referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "id_rol",referencedColumnName = "id_rol")
+//    )
+//    private Set<Rol> roles;
+
+    public Usuario(Long id, String firstName, String lastName, String email, Date createAt, String status) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.createAt = createAt;
+        this.status = status;
+
     }
 
     public Usuario() {
     }
 
-    public Long getId_user() {
-        return id_user;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getNombre_user() {
-        return nombre_user;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setNombre_user(String nombre_user) {
-        this.nombre_user = nombre_user;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCorreo_user() {
-        return correo_user;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCorreo_user(String correo_user) {
-        this.correo_user = correo_user;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public Integer getContra_user() {
-        return contra_user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContra_user(Integer contra_user) {
-        this.contra_user = contra_user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Rol getRol() {
-        return rol;
+
+
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
 }

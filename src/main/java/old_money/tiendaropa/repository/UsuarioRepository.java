@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     //ver un videito de como funciona el repositorio en spring boot
 
+    public Usuario findByEmail(String email);
 
 }

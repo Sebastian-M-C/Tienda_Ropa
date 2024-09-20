@@ -9,13 +9,18 @@ import lombok.Data;
 public class Rol {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_rol;
+
     @Column(nullable = false)
     private String tipo_rol;
 
     public Rol(Long id_rol, String tipo_rol) {
         this.id_rol = id_rol;
+        this.tipo_rol = tipo_rol;
+    }
+
+    public Rol(String tipo_rol) {
         this.tipo_rol = tipo_rol;
     }
 

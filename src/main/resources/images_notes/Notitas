@@ -33,3 +33,5 @@ Controlador: Es el que expone las API a través de endpoints HTTP para que pueda
              │               └── service/  <-- Aquí crearás los servicios (3)
 
 Esta es la estructura que debería seguir para futuros proyectos
+
+Entender bien el set y get (setters and getters)

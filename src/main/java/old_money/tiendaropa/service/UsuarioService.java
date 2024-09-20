@@ -14,23 +14,23 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     //obtener todos los usuarios por lista
-    public List<Usuario> obtenerTodosLosUsuarios(){
+    public List<Usuario> obtenerTodosLosUsuarios() {
         return usuarioRepository.findAll(); //llama al metodo del repositorio
     }
 
     //obtener un usuario por ID, optional significa que busca si existe o
     // no el dato de valor null
-    public Optional<Usuario> ObtenerUsuarioPorId(Long id){
+    public Optional<Usuario> ObtenerUsuarioPorId(Long id) {
         return usuarioRepository.findById(id);
     }
 
     //Crear un usuario nuevo
-    public Usuario crearNuevoUsuario(Usuario usuario){
+    public Usuario crearNuevoUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
     //eliminar un usuario por Id
-    public void eliminarUsuarioPorId(Long id){
+    public void eliminarUsuarioPorId(Long id) {
         usuarioRepository.deleteById(id);
     }
 }

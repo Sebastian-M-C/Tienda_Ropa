@@ -21,9 +21,9 @@ public class Producto {
     @Column(nullable = false)
     private Integer stock;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_categoria")
-    private Categoria categoria;
+//    @ManyToOne
+//    @JoinColumn(name = "fk_categoria")
+//    private Categoria categoria;
 
 
 }
